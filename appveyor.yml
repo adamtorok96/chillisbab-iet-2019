@@ -24,9 +24,9 @@ configuration: Release
 build_script:
   - ps: ./build.ps1 -Target Pack --configuration=Release --NuGetVersion=$env:GitVersion_NuGetVersion
   - choco install "sonarscanner-msbuild-net46" -y
-  - SonarScanner.MSBuild.exe begin /k:"IET-dotNetRDF" /d:"sonar.host.url=https://sonarcloud.io" /o:"krumplipucolo-github" /d:"sonar.login=9734a38fff9561883941cb629a50d8fd50d1087a"
+  - SonarScanner.MSBuild.exe begin /k:"IET-dotNetRDF" /d:sonar.organization="krumplipucolo-github" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="8700927fae422b075778af4658314e45f7893d57"
   - msbuild /verbosity:quiet "dotNetRDF.sln"
-  - SonarScanner.MSBuild.exe end /d:"sonar.login=9734a38fff9561883941cb629a50d8fd50d1087a"
+  - SonarScanner.MSBuild.exe end /d:"sonar.login=8700927fae422b075778af4658314e45f7893d57"
 test_script:
   - ps: ./build.ps1 -Target Cover --configuration=Release *> test.log
   - ps: ./build.ps1 -Target Codecov --configuration=Release -no-build=true
