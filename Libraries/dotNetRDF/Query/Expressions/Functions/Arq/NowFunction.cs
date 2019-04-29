@@ -39,6 +39,7 @@ namespace VDS.RDF.Query.Expressions.Functions.Arq
     {
         private SparqlQuery _currQuery;
         private IValuedNode _node;
+        private readonly object lockObject = new object();
 
         /// <summary>
         /// Gets the value of the function in the given Evaluation Context for the given Binding ID
@@ -56,7 +57,7 @@ namespace VDS.RDF.Query.Expressions.Functions.Arq
             }
             if (_node == null || !ReferenceEquals(_currQuery, context.Query))
             {
-                lock (this)
+                lock (lockObject)
                 {
                     if (_node == null || !ReferenceEquals(_currQuery, context.Query))
                     {
