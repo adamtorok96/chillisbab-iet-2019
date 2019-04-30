@@ -3,7 +3,6 @@ mono: none
 dotnet: 2.0
 script:
  - dotnet restore
- - sonar-scanner
  addons:
   sonarcloud:
     organization: "krumplipucolo-github" # the key of the org you chose at step #3
