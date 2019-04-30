@@ -1,9 +1,13 @@
 language: csharp
+
 mono: none
+
 dotnet: 2.0
+
 script:
  - dotnet restore
- addons:
+
+addons:
   sonarcloud:
     organization: "krumplipucolo-github" # the key of the org you chose at step #3
     token:
