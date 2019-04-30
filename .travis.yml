@@ -10,7 +10,7 @@ addons:
 
 matrix:
   include:
-    - mono: none
+    - mono: latest
       dotnet: 2.0 # 1.1
 
       install:
