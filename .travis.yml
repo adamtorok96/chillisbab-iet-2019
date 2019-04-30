@@ -8,7 +8,7 @@ dotnet: 2.0
 
 addons:
   sonarcloud:
-    organization: "chillisbab-iet-2019" # the key of the org you chose at step #3
+    organization: "adamtorok96-github" # the key of the org you chose at step #3
     token:
       secure: 66718e96ab8ac15b407d26340fce6df2f3246f8c # encrypted value of your token
 
