@@ -23,7 +23,6 @@ matrix:
         - dotnet cake build.cake --pack
       # - dotnet test 
       # - sonar-scanner
-       - 
     
 #    - mono: latest
 #      
