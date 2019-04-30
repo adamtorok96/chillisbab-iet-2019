@@ -10,8 +10,8 @@ addons:
 
 matrix:
   include:
-    - dotnet: 2.0
-      mono: none
+    - mono: none
+      dotnet: 1.1
 
       install:
        - dotnet restore
@@ -24,8 +24,10 @@ matrix:
       
       install:
         - nuget restore dotNetRDF.sln
-        - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
+        - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
+        #- nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
           
       script:
         - msbuild /p:Configuration=Release dotNetRDF.sln
-        - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./Testing/unittest/bin/Release/netcoreapp2.0/dotNetRDF.Test.dll
+        - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./Testing/unittest/bin/Release/netcoreapp2.0/dotNetRDF.Test.dll
+        #- mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./Testing/unittest/bin/Release/netcoreapp2.0/dotNetRDF.Test.dll
