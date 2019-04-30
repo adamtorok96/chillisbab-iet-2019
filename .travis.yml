@@ -15,21 +15,26 @@ matrix:
 
       install:
        - dotnet restore
+       #- ./build.ps1 -Target Pack --configuration=Release --NuGetVersion=$env:GitVersion_NuGetVersion
          
       script:
-      # - dotnet test
-       - sonar-scanner
+        - dotnet tool install -g Cake.Tool --version 0.31.0
+        - dotnet cake build.cake --bootstrap
+        - dotnet cake build.cake --pack
+      # - dotnet test 
+      # - sonar-scanner
+       - 
     
-    - mono: latest
-      
-      install:
-        - nuget restore dotNetRDF.sln
-        - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
-        #- msbuild /p:Configuration=Release dotNetRDF.sln
-       # - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
-        #- nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
-          
-      script:
-        - xbuild /p:Configuration=Release dotNetRDF.sln
-        - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./Testing/unittest/bin/Release/netcoreapp2.0/dotNetRDF.Test.dll
+#    - mono: latest
+#      
+#      install:
+#        - nuget restore dotNetRDF.sln
+#        #- nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
+#        #- msbuild /p:Configuration=Release dotNetRDF.sln
+#       # - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
+#        #- nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
+#          
+#      script:
+        #- xbuild /p:Configuration=Release dotNetRDF.sln
+        #- mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./Testing/unittest/bin/Release/netcoreapp2.0/dotNetRDF.Test.dll
         #- mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./Testing/unittest/bin/Release/netcoreapp2.0/dotNetRDF.Test.dll
