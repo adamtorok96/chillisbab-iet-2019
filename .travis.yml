@@ -24,7 +24,7 @@ matrix:
       
       install:
         - nuget restore dotNetRDF.sln
-        - msbuild /p:Configuration=Release dotNetRDF.sln
+        #- msbuild /p:Configuration=Release dotNetRDF.sln
        # - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
         #- nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
           
