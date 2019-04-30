@@ -23,7 +23,7 @@ matrix:
     - mono: latest
       
       install:
-        - nuget install dotNetRDF.sln
+        - nuget restore dotNetRDF.sln
         - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
         #- msbuild /p:Configuration=Release dotNetRDF.sln
        # - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
