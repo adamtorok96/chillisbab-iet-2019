@@ -18,9 +18,9 @@ matrix:
        #- ./build.ps1 -Target Pack --configuration=Release --NuGetVersion=$env:GitVersion_NuGetVersion
          
       script:
-        - dotnet tool install -g Cake.Tool --version 0.31.0
-        - dotnet cake build.cake --bootstrap
-        - dotnet cake build.cake --pack
+        - curl -s https://codecov.io/bash > codecov
+        - chmod +x codecov
+        - ./codecov -f "*opencover.xml"
       # - dotnet test 
       # - sonar-scanner
     
