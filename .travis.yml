@@ -15,13 +15,14 @@ matrix:
 
       install:
        - dotnet restore
+       - dotnet build dotNetRDF.sln
        #- ./build.ps1 -Target Pack --configuration=Release --NuGetVersion=$env:GitVersion_NuGetVersion
          
       script:
         - dotnet test -c Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
-        - curl -s https://codecov.io/bash > codecov
-        - chmod +x codecov
-        - ./codecov -f "*opencover.xml"
+#        - curl -s https://codecov.io/bash > codecov
+#        - chmod +x codecov
+#        - ./codecov -f "*opencover.xml"
         
       # - sonar-scanner
     
