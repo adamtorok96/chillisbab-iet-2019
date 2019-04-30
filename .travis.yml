@@ -1,10 +1,12 @@
 language: csharp
 
 mono:
-# - latest
- - none
+ - latest
+# - none
 
 dotnet: 2.0
+
+solution: dotNetRDF.sln
 
 addons:
   sonarcloud:
@@ -13,11 +15,11 @@ addons:
       secure: 66718e96ab8ac15b407d26340fce6df2f3246f8c # encrypted value of your token
 
 install:
- - dotnet restore
+# - dotnet restore
  - nuget restore dotNetRDF.sln
  - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
 
 script:
  - msbuild /p:Configuration=Release solution-name.sln
  - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./Testing/unittest/bin/Release/netcoreapp2.0/dotNetRDF.Test.dll
- - sonar-scanner
+# - sonar-scanner
