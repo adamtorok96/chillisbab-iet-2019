@@ -15,7 +15,7 @@ matrix:
 
       install:
        - dotnet restore
-       - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+       - maven clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
        #- dotnet build dotNetRDF.sln
        #- ./build.ps1 -Target Pack --configuration=Release --NuGetVersion=$env:GitVersion_NuGetVersion
          
