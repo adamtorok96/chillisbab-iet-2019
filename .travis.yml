@@ -6,9 +6,9 @@ dotnet: 2.0
 
 addons:
   sonarcloud:
-    organization: "krumplipucolo-github" # the key of the org you chose at step #3
+    organization: "chillisbab-iet-2019" # the key of the org you chose at step #3
     token:
-      secure: b601446d564b2d1fdc47c1b5be040f9e5ed7668a # encrypted value of your token
+      secure: 66718e96ab8ac15b407d26340fce6df2f3246f8c # encrypted value of your token
 
 script:
  - dotnet restore
