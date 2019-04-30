@@ -1,7 +1,7 @@
 language: csharp
 
 mono:
- - latest
+# - latest
  - none
 
 dotnet: 2.0
@@ -14,4 +14,4 @@ addons:
 
 script:
  - dotnet restore
-# - sonar-scanner
+ - sonar-scanner
